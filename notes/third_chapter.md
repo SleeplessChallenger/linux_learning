@@ -20,7 +20,7 @@
 		- `systemctl enable ssh`
 		- `systemctl disable ssh`
 
-	- ![Alt text](image_folder/handshake_process.png?raw=true)
+	- ![Alt text](../image_folder/handshake_process.png?raw=true)
 
 	- `ssh name_of_the_account_on_the_server@ip_address mkdir -p .ssh`: create directory .ssh
 	- `cat .ssh/id_rsa.pub | ssh name_of_the_server@host_number "cat >> .ssh/authorized_keys"`

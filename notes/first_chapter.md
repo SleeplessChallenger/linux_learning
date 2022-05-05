@@ -6,7 +6,7 @@
 
 1. What is a `file system`? -> **data table/index** that creates apparent connections between files/group of files
 	with identifiable locations on a disk
-	![Alt text](image_folder/directories.png?raw=true)
+	![Alt text](../image_folder/directories.png?raw=true)
 	* why do we need an **index**? -> files may not remain static + hard drive/USB aren't divided into folders/directories, so
 		we need some index to make a link between file and place on the disk
 	* single disk division - `partition`. So, index provides appearance for organized set of files & directories within a partition
@@ -19,7 +19,7 @@
 		- `bin`
 		- `lib`
 		- `usr`
-	![Alt text](image_folder/sub_root.png?raw=true)
+	![Alt text](../image_folder/sub_root.png?raw=true)
 
 2. Commands
 	* ls - view
