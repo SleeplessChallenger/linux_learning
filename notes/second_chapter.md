@@ -32,7 +32,7 @@ PS: Fedora belongs to Red Hat distro
 8. RPM guys are less user-friendly than debian ones
 
 9. you can use `vboxmanage` command to work with virtual box
-	* `scp` is to copy from one machine to another
+	* `scp` is to copy from one machine to another: `s` stands for secure
 
 10. To create a linux container: 
 	* `lxc-create -n someName -t ubuntu`
