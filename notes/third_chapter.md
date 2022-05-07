@@ -1,4 +1,4 @@
-<h2>Third chapter: virtualization</h2>
+<h2>Third chapter: encryption</h2>
 
 - At first there was **Telnet**
 
@@ -34,11 +34,12 @@
 
 6. `cp` can be used to copy from one machine to another, but it's not secure
 	* `scp` is to copy from one machine to another: `s` stands for secure
-	* if `.ssh` directory already exist on remotee machine: 
+	* if `.ssh` directory already exist on remote machine: 
 		- `scp .ssh/id_rsa.pub ubuntu@10.0.3.142:/home/ubuntu/.ssh/authorized_keys`
 	* to copy **from** remote to local: `scp -i mykey.pem remote_account_name@ip_address:/home/remote_account_name/some_file ./some_folder/` - relative to the current dir on local you're in
+	* `scp some_file ubuntu@10.0.3.142:/home/ubuntu/some_file`
 
-7. `ssh-copy-id -i .ssh/id_rsa.pub account_on_remote@ip_address` - copy concrete public key & it'll b automcatically moved to the appropriate dir
+7. `ssh-copy-id -i .ssh/id_rsa.pub account_on_remote@ip_address` - copy concrete public key & it'll be automcatically moved to the appropriate dir
 
 8. What is **X11 forwarding**? Launch app on the server & through ssh forward th display to the client
 	* `/etc/ssh/ssh_config` are the files on host & client machines to be edited
@@ -56,3 +57,8 @@
 		- `-e` is to show all processes like parent ones right to the very `init`
 			- parent is GUI desktop session, terminal is child as former is an earlier process
 				and latter is laucnhed through it
+	* `pstree -p` is to visualize all processes with PID
+	* `systemd` == `init`. But, if you type `file init` in `/sbin/`, you will see that it is a <i>symbolic link</i> => it is not now the first process
+		- links to `/lib/systemd/systemd`
+
+12. Practically all modern linux distros use same **process manager** `systemd`. And you generally manage all the tasks with `systemctl`
