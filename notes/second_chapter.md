@@ -1,16 +1,15 @@
 <h2>Second chapter: virtualization</h2>
 
  - **Virtualization** - process of splitting one `bare-metal` server into separate isntances (aka virtual machines) to cater for various services. Also, it provides ability to assign desired level of resources needed to the single VM & tweak it if needed
-
- ![Alt text](../image_folder/virtualization_example.png?raw=true)
+   - <img src="../image_folder/virtualization_example.png" width="600" height="200">
 
  1. There are 2 approaches to virtualization:
  	- <i>hypervisors aka VMslxc-crea</i>
- 		- hypervisor serves as layer between hardware & VMs
- 		- ![Alt text](../image_folder/hypervisors.png?raw=true)
+         - hypervisor serves as layer between hardware & VMs
+         - <img src="../image_folder/hypervisors.png" width="600" height="300">
  	- <i>containers</i>
- 		- LXC (linux container) abstracts OS that has been provided by server or VM. It shares the host machine's core OS kernel
- 		- ![Alt text](../image_folder/containers.png?raw=true)
+         - LXC (linux container) abstracts OS that has been provided by server or VM. It shares the host machine's core OS kernel
+         - <img src="../image_folder/containers.png" width="600" height="300">
 
  2. In linux software package manager is a tool which connects computer to online repositories　　
  	- In debian based systems package manager is called Advanced Package Tool (`apt`)

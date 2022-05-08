@@ -21,7 +21,7 @@
 		- `systemctl enable ssh`
 		- `systemctl disable ssh`
 
-	- ![Alt text](../image_folder/handshake_process.png?raw=true)
+    - <img src="../image_folder/handshake_process.png" width="600" height="400">
 
 5. Logging to the remote server with ssh:
 	- `ssh name_of_the_account_on_the_server@ip_address mkdir -p .ssh`: create directory .ssh
@@ -48,7 +48,8 @@
 
 <h3>A little bit about linux process management</h3>
 
-![Alt text](../image_folder/systemctl_examplee.png?raw=true)
+<img src="../image_folder/systemctl_examplee.png" width="600" height="300">
+
 
 9. PID: process id
 10. On Ubuntu the first process when Linux PC boots is `init`

@@ -1,4 +1,4 @@
-<h2>Third chapter: archive management</h2>
+<h2>Fourth chapter: archive management</h2>
 
 - compression != archiving
 	- former is to remove useless/less important files. File needs to be de-compressed to be read
@@ -31,7 +31,7 @@
 	- `tar czvf arch.tar.gz *.mp4`
 	- `tar` & `gz` aren't crucial, but better to put to make it more verbose
 	- to select outisde your current dir: `tar czvf arch.tar.gz /home/some_user/Videos/*.mp4`
-	- if you want to split the archivees: `split -b 1G arch.tar.gz "arch.tar.gz.part"`
+	- if you want to split the archives: `split -b 1G arch.tar.gz "arch.tar.gz.part"`
 		- it'll name dirs like `arch.tar.gz.partaa`, `arch.tar.gz.partab`
 	- `cat arch.tar.gz.part* > arch.tar.gz` - recreate archive by reading parts in sequence & then putting them in one big archive 
 
@@ -47,7 +47,7 @@
 
 9. About `find` command: it'll print what finds to **standard output** (stdout)
 	- but result from stdout can't be easily redirected to tar
-	- `sudo find /var/www/html/ -iname <1> "*.mp4" -eexec tar -rvf videos.tar {}`
+	- `sudo find /var/www/html/ -iname "*.mp4" -exec tar -rvf videos.tar {}`
 		- -`iname` for case insentivive whilst `name` for case sensitive
 		- `r` is to append instead of overwrite to the file
 		- `{}` is to apply `tar` command to each file it finds
@@ -73,4 +73,35 @@
 			- third figure -> others: read/write/execute
 			* I.e. 755: 7 for owner, 5 for group & others; withour read permission for others -> 751; adding write perimssion to group: 771
 
+11. If file created with `sudo` -> owner is root. We need to change the root to the one we want it to be so: `sudo chown otheruser:otheruser some_file`
+	- first is permissions & second is ownership
 
+12. `mkdir tempdir && cd tempdir`
+	- `&&` means that second command will be executed only if first one
+		is successful
+
+13. In general if we want to change the owner/permissions of the file: `chown`
+
+14. to extract files: `tar xvf stuff.tar`
+	- it'll overwrite files with the same naming
+	- **CRUCIAL:** after unarchiving even the files with permissions/ownership with other users will be restored to the one who run `sudo`
+
+15. `dd` allows to archive entire system. If we use `tar` as above, it requires running linux OS to use them
+	- `dd if=/dev/sda of=/dev/sdb`
+		- `if` for what to archive & `of` where to
+	- `dd if=/dev/sda of=/home/username/sdadisk.img`
+	- `dd if=/dev/sda2 of=/home/username/partition2.img bs=4096`: this<b>	one shows how to archive a partition of a disk whereas `bs` for how much to copy at a single time
+
+16. Restoring is reverse: `if` from which file to take & `of` where to write the **image**
+	- `dd if=sdadisk.img of=/dev/sdb`
+
+17. simple deleting of files won't remove them from the drive. However, if you use `dd`: you can do so
+	- `sudo dd if=/dev/zero of=/dev/sda1`
+	- `sudo dd if=/dev/urandom of=/dev/sda1`
+
+18. `rsync` to copy not the whole drive all the time, but only changing parts
+	- step 1 `ssh username@10.0.3.141 "mkdir syncdirectory"`
+	- step 2 `rsync -av * username@10.0.3.141:syncdirectory`
+		- `-v` is verbose
+		- `-a` is for recursive (subdirs & contents will be preserved)
+	- <b>Run `rsync` after changes were made</b>
