@@ -86,7 +86,7 @@
 	- it'll overwrite files with the same naming
 	- **CRUCIAL:** after unarchiving even the files with permissions/ownership with other users will be restored to the one who run `sudo`
 
-15. `dd` allows to archive entire system. If we use `tar` as above, it requires running linux OS to use them
+15. `dd` allows to archive entire system. If we use `tar` as above, it requires running linux OS to use them, but `dd` is a full-fledged image
 	- `dd if=/dev/sda of=/dev/sdb`
 		- `if` for what to archive & `of` where to
 	- `dd if=/dev/sda of=/home/username/sdadisk.img`
