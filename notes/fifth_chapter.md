@@ -85,5 +85,3 @@ Unit=site-backup.service
 [Install]
 WantedBy=multi-user.target
 ```
-
-# TODO: write to author about 2 errors: with test -x & with systeemctl is-enabled
