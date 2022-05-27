@@ -44,7 +44,7 @@
 		* use another if needed. Here we're to remove `ssh`
 	* `sudo ufw allow from <Some IP> to any port <22>`
 
-9. for secutory reasons it's better to change default ssh port from `22` to some other
+9. for security reasons it's better to change default ssh port from `22` to some other
 	* `/etc/ssh/sshd_conf` - change your default ssh port
 	* `systemctl restart ssh`
 	* `ssh -p<port_number> name@remote_IP`
@@ -53,3 +53,23 @@
 
 - <img src="../image_folder/ports_info.png" width="300" height="600">
 
+10. read p. 188 about certbot
+
+11. You can disable root logging in `/etc/ssh/sshd_conf` write PermitRootLogin no
+12. `DAC` - discretionary access control system is the one where users have full access (recall `chmod`) over their resources
+	* making `chmod 777` is a bad practice. What's better? -> install `SELinux`.
+		It activates `MAC` (mandatory access control) -> you can't install inherently dangerous configs
+	* principle of least privilege
+	* Look on the net how to install && activate
+
+- <img src="../image_folder/selinx.png" width="300" height="600">
+
+13. Commands related to groups:
+	* `groupadd app-data-group`
+	* `chown user:app-data-group file.txt` - changes group of the file to the new `app-data-group`
+	* `usermod -aG app-data-group otheruser`
+
+14. Auditing system resources:
+	- `netstat -npl` - for ports
+	- `systemctl list-unit-files --type=services --state=enabled` - for running services
+	- `dpkg --list` is to list all services; `apt-get remove packageName` 
